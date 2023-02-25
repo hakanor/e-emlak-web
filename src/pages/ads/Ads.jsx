@@ -1,12 +1,18 @@
 import React from "react";
 import "./ads.css";
+import Sidebar from "../../components/sidebar/Sidebar";
+import Navbar from "../../components/navbar/Navbar";
 
 const Ads = () => {
     return (
         <div className="ads">
-            <h1 className="title">Ads Page</h1>
+          <Sidebar />
+          <div className="adsContainer">
+          <Navbar />
+          ads
+          </div>
         </div>
-    )
+      );
 }
 
 export default Ads;

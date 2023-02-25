@@ -1,7 +1,6 @@
 .ads {
-    background-color: #049FFF;
+    display: flex;
 }
-
-.title {
-    color: white;
+.ads .adsContainer {
+    flex: 6;
 }
