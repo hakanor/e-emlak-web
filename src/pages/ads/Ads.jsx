@@ -2,6 +2,7 @@ import React from "react";
 import "./ads.css";
 import Sidebar from "../../components/sidebar/Sidebar";
 import Navbar from "../../components/navbar/Navbar";
+import List from "../../components/table/Table";
 
 const Ads = () => {
     return (
@@ -9,7 +10,7 @@ const Ads = () => {
           <Sidebar />
           <div className="adsContainer">
           <Navbar />
-          ads
+          <List/>
           </div>
         </div>
       );

@@ -1,7 +1,6 @@
 .users {
-    background-color: #049FFF;
+    display: flex;
 }
-
-.title {
-    color: white;
+.users .usersContainer {
+    flex: 6;
 }

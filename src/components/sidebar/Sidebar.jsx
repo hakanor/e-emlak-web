@@ -11,11 +11,14 @@ import PersonOffOutlinedIcon from '@mui/icons-material/PersonOffOutlined';
 import ContentPasteOffOutlinedIcon from '@mui/icons-material/ContentPasteOffOutlined';
 import ContentPasteOutlinedIcon from '@mui/icons-material/ContentPasteOutlined';
 
+import logo from "./logo.png";
+
 const Sidebar = () => {
     return (
       <div className="sidebar">
         <div className="top">
           <Link to="/" style={{ textDecoration: "none" }}>
+            <img src={logo} alt="Your App Logo" className="logo-img" />
             <span className="logo">e-Emlak Admin</span>
           </Link>
         </div>

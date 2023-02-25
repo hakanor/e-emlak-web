@@ -75,3 +75,7 @@
 .sidebar .bottom .colorOption:nth-child(3) {
     background-color: darkblue;
 }
+
+.logo-img {
+    width: 35px;
+}
