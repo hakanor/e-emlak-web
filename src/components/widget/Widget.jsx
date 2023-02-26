@@ -17,7 +17,6 @@ const Widget = ({ type }) => {
     case "user":
       data = {
         title: "USERS",
-        isMoney: false,
         link: "See all users",
         icon: (
           <PersonOutlinedIcon
@@ -33,7 +32,6 @@ const Widget = ({ type }) => {
     case "ads":
       data = {
         title: "ADS",
-        isMoney: false,
         link: "View all ads",
         icon: (
           <ContentPasteOutlinedIcon
@@ -49,7 +47,6 @@ const Widget = ({ type }) => {
     case "userReports":
       data = {
         title: "USER REPORTS",
-        isMoney: true,
         link: "Viev all user reports",
         icon: (
           <PersonOffOutlinedIcon
@@ -62,7 +59,6 @@ const Widget = ({ type }) => {
     case "adReports":
       data = {
         title: "AD REPORTS",
-        isMoney: true,
         link: "Viev all ad reports",
         icon: (
           <ContentPasteOffOutlinedIcon
@@ -84,7 +80,7 @@ const Widget = ({ type }) => {
       <div className="left">
         <span className="title">{data.title}</span>
         <span className="counter">
-          {data.isMoney && "$"} {amount}
+         {amount}
         </span>
         <span className="link">{data.link}</span>
       </div>
