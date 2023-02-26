@@ -8,6 +8,7 @@ import Users from "./pages/users/Users";
 import ShowAd from "./pages/ads/ShowAd";
 import Ads from "./pages/ads/Ads";
 import Login from "./pages/login/Login";
+import UserReport from "./pages/userReports/UserReports";
 
 function App() {
   return (
@@ -25,6 +26,7 @@ function App() {
               <Route index element={<Ads />} />
               <Route path=":adId" element={<ShowAd />} />
             </Route>
+            <Route path="userReports" element={<UserReport />} />
           </Route>
         </Routes>
       </BrowserRouter>

@@ -11,7 +11,7 @@ import PersonOffOutlinedIcon from '@mui/icons-material/PersonOffOutlined';
 import ContentPasteOffOutlinedIcon from '@mui/icons-material/ContentPasteOffOutlined';
 import ContentPasteOutlinedIcon from '@mui/icons-material/ContentPasteOutlined';
 
-import logo from "./logo.png";
+import logo from "../../logo.png";
 
 const Sidebar = () => {
     return (
