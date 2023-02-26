@@ -1,7 +1,7 @@
 import Home from "./pages/home/Home";
 
 import React from 'react'
-import { BrowserRouter, Routes, Route } from "react-router-dom";
+import { BrowserRouter, Routes, Route, Navigate} from "react-router-dom";
 
 import ShowUser from "./pages/users/ShowUser";
 import Users from "./pages/users/Users";
