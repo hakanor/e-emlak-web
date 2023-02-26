@@ -21,10 +21,7 @@ const Widget = ({ type }) => {
         icon: (
           <PersonOutlinedIcon
             className="icon"
-            style={{
-              color: "crimson",
-              backgroundColor: "rgba(255, 0, 0, 0.2)",
-            }}
+            style={{ backgroundColor: "rgba(0, 128, 0, 0.2)", color: "green" }}
           />
         ),
       };
@@ -51,7 +48,10 @@ const Widget = ({ type }) => {
         icon: (
           <PersonOffOutlinedIcon
             className="icon"
-            style={{ backgroundColor: "rgba(0, 128, 0, 0.2)", color: "green" }}
+            style={{
+                color: "crimson",
+                backgroundColor: "rgba(255, 0, 0, 0.2)",
+            }}
           />
         ),
       };
