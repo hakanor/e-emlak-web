@@ -7,9 +7,6 @@ import "./users.css";
 import { useState, useEffect } from "react";
 import FirebaseService from '../../FirebaseService';
 
-
-
-
 const Users = () => {
   const [data, setData] = useState([]);
 
