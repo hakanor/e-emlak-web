@@ -2,6 +2,8 @@ import Home from "./pages/home/Home";
 
 import React from 'react'
 import { BrowserRouter, Routes, Route, Navigate} from "react-router-dom";
+import { useContext } from "react"
+import { AuthContext } from "./context/AuthContext";
 
 import ShowUser from "./pages/users/ShowUser";
 import Users from "./pages/users/Users";
@@ -12,7 +14,8 @@ import UserReport from "./pages/userReports/UserReports";
 
 function App() {
 
-  const currentUser = true;
+  const {currentUser} = useContext(AuthContext);
+
   const RequireAuth = ({ children }) => {
     return currentUser ? children : <Navigate to="/login" />;
   };
