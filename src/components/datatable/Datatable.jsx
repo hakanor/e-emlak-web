@@ -10,6 +10,7 @@ import {
   deleteDoc,
   doc,
   onSnapshot,
+  where
 } from "firebase/firestore";
 import { db } from "../../firebase";
 
@@ -26,6 +27,7 @@ const Datatable = () => {
         });
         setData(list);
         console.log(list);
+        console.log(typeof(list));
       } catch (err) {
         console.log(err);
       }

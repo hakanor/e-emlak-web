@@ -11,25 +11,68 @@ import {
   doc,
   getDoc,
 } from "firebase/firestore";
+
+import {
+  where,
+  getDocs,
+  collection,
+} from "firebase/firestore";
 import { db } from "../../firebase";
 
 const ShowUser = () => {
 
   const { id } = useParams();
   const [userData, setUserData] = useState(null);
+  const [adsData, setAdsData] = useState([]);
 
   useEffect(() => {
     const fetchUserData = async () => {
       try {
         const userDoc = await getDoc(doc(db, "users", id));
-        setUserData(userDoc.data());
+        const userData = userDoc.data();
+        setUserData(userData);
+        console.log(id);
+        if (id != null){
+          const adsSnapshot = await getDocs(collection(db, "ads"), where("uid", "==", id));
+          const adsData = adsSnapshot.docs.map((doc) => {
+            const data = doc.data();
+            // Convert object properties to strings
+            const stringData = {
+              adId : doc.id,
+              uid : data.uid,
+              title: data.title,
+              price: data.price,
+              location: data.location,
+              images: data.images,
+              estateType: data.estateType,
+              timestamp: data.timestamp,
+              description: data.description,
+              floorNumber: data.floorNumber,
+              numberOfFloors : data.numberOfFloors,
+              numberOfRooms : data.numberOfRooms,
+              numberOfBathrooms : data.numberOfBathrooms,
+              squareMeter : data.squareMeter,
+              squareMeterNet : data.squareMeterNet,
+              pricePerSquareMeter : data.pricePerSquareMeter,
+              latitude: data.latitude,
+              longitude: data.longitude,
+              parcelNumber : data.parcelNumber,
+              blockNumber : data.blockNumber,
+              heating : data.heating,
+              ageOfBuilding : data.ageOfBuilding,
+              status : data.status
+            };
+            return stringData;
+          });
+          setAdsData(adsData);
+        }
       } catch (err) {
         console.log(err);
-        console.log(`No user found with id ${id}`);
+        console.log(`No ads found with id ${id}`);
       }
     };
     fetchUserData();
-  }, [id]);
+  }, []);
 
   if (!userData) {
     return <div>Loading...</div>;
@@ -76,7 +119,7 @@ const ShowUser = () => {
         </div>
         <div className="bottom">
         <h1 className="title">Son İlanları</h1>
-          <List rows ={userData}/>
+          <List rows={adsData}/>
         </div>
       </div>
     </div>
