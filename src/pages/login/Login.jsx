@@ -12,6 +12,8 @@ const Login = () => {
   const [email, setEmail] = useState("");
   const [password, setPassword] = useState("");
 
+  const navitage = useNavigate()
+
   const handleLogin = (e) => {
     e.preventDefault();
 
@@ -19,7 +21,7 @@ const Login = () => {
       .then((userCredential) => {
         // Signed in
         const user = userCredential.user;
-        console.log(user)
+        navitage("/")
       })
       .catch((error) => {
         setError(true);

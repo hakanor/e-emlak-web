@@ -11,22 +11,28 @@ import Login from "./pages/login/Login";
 import UserReport from "./pages/userReports/UserReports";
 
 function App() {
+
+  const currentUser = true;
+  const RequireAuth = ({ children }) => {
+    return currentUser ? children : <Navigate to="/login" />;
+  };
+
   return (
     <div className="App">
       <BrowserRouter>
         <Routes>
           <Route path="/">
-            <Route index element={<Home />} />
             <Route path="login" element={<Login />} />
+            <Route index element={<RequireAuth><Home /></RequireAuth>} />
             <Route path="users">
-              <Route index element={<Users />} />
-              <Route path=":userId" element={<ShowUser />} />
+              <Route index element={<RequireAuth><Users /></RequireAuth>} />
+              <Route path=":userId" element={<RequireAuth><ShowUser /></RequireAuth>} />
             </Route>
             <Route path="ads">
-              <Route index element={<Ads />} />
-              <Route path=":adId" element={<ShowAd />} />
+              <Route index element={<RequireAuth><Ads /></RequireAuth>} />
+              <Route path=":adId" element={<RequireAuth><ShowAd /></RequireAuth>} />
             </Route>
-            <Route path="userReports" element={<UserReport />} />
+            <Route path="userReports" element={<RequireAuth><UserReport /></RequireAuth>} />
           </Route>
         </Routes>
       </BrowserRouter>
