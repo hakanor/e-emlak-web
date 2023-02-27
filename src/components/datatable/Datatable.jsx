@@ -64,7 +64,7 @@ const Datatable = () => {
       renderCell: (params) => {
         return (
           <div className="cellAction">
-            <Link to="/users/test" style={{ textDecoration: "none" }}>
+            <Link to={`/users/${params.row.id}`} style={{ textDecoration: "none" }}>
               <div className="viewButton">View</div>
             </Link>
             <div
@@ -94,6 +94,9 @@ const Datatable = () => {
         rowsPerPageOptions={[9]}
         checkboxSelection
       />
+      <div className="datatableCount">
+        Total number of users: {data.length}
+      </div>
     </div>
   );
 };

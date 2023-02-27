@@ -29,7 +29,7 @@ function App() {
             <Route index element={<RequireAuth><Home /></RequireAuth>} />
             <Route path="users">
               <Route index element={<RequireAuth><Users /></RequireAuth>} />
-              <Route path=":userId" element={<RequireAuth><ShowUser /></RequireAuth>} />
+              <Route path=":id" element={<RequireAuth><ShowUser /></RequireAuth>} />
             </Route>
             <Route path="ads">
               <Route index element={<RequireAuth><Ads /></RequireAuth>} />

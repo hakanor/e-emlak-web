@@ -67,3 +67,14 @@
     border: 1px dotted rgba(220, 20, 60, 0.6);
     cursor: pointer;
 }
+
+.datatableCount {
+    padding: 10px;
+    width: 100%;
+    font-size: 24px;
+    color: gray;
+    margin-bottom: 10px;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+}
