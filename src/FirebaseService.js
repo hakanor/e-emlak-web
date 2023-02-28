@@ -1,4 +1,4 @@
-import { collection, doc, getDocs, getDoc, addDoc, updateDoc, deleteDoc, where } from 'firebase/firestore';
+import { collection, doc, getDocs, getDoc, addDoc, updateDoc, deleteDoc, where ,query} from 'firebase/firestore';
 import { db } from './firebase';
 
 // Define a service object
@@ -18,9 +18,9 @@ FirebaseService.getAll = async (collectionName) => {
   return data;
 };
 
-FirebaseService.getAllWhere = async (collectionName, field, statement ,value ) => {
-  console.log(`Fetching documents from ${collectionName} where ${field} ${statement} ${value}`);
-  const querySnapshot = await getDocs(collection(db, collectionName), where(field, statement, value));
+FirebaseService.getAllWhere = async (collectionName, field ,value ) => {
+  console.log(`Fetching documents from ${collectionName} where ${field} ${value}`);
+  const querySnapshot = await getDocs(collection(db, collectionName));
   console.log(`Found ${querySnapshot.size} documents`);
   const data = [];
   querySnapshot.forEach((doc) => {
@@ -28,10 +28,20 @@ FirebaseService.getAllWhere = async (collectionName, field, statement ,value ) =
       id: doc.id,
       ...doc.data()
     };
+    console.log(typeof(item.uid));
     data.push(item);
+
+
   });
   console.log(`Returning ${data.length} documents`);
-  return data;
+
+  const filteredData = data.filter((item) => item[field] === value).map((item) => ({
+    ...item,
+    documentId: item.id,
+    status: item.status ? 'true' : 'false'
+  }));
+  console.log(`Returning ${filteredData.length} documents`);
+  return filteredData;
 };
 
 // Fetch a single document from a collection by ID

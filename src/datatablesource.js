@@ -31,7 +31,7 @@ export const userColumns = [
 ];
 
 export const adColumns = [
-  { field: "adId", headerName: "Ad ID", width: 350 },
+  { field: "documentId", headerName: "Ad ID", width: 350 },
   {
     field: "uid",
     headerName: "User ID",
@@ -45,7 +45,7 @@ export const adColumns = [
   {
     field: "price",
     headerName: "Price",
-    width: 250,
+    width: 150,
   },
   {
     field: "location",

@@ -33,8 +33,6 @@ const UserReports = () => {
     
   }, []);
 
-  console.log(data);
-
     return (
         <div className="userReports">
             <Datatable data={data} dataType={"user"}/>

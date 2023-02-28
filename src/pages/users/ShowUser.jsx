@@ -4,74 +4,44 @@ import Sidebar from "../../components/sidebar/Sidebar";
 import Navbar from "../../components/navbar/Navbar";
 import List from "../../components/table/Table";
 
-import { useEffect, useState } from "react";
-
+import { useState, useEffect } from "react";
+import FirebaseService from '../../FirebaseService';
 import { useParams } from "react-router-dom";
-import {
-  doc,
-  getDoc,
-} from "firebase/firestore";
-
-import {
-  where,
-  getDocs,
-  collection,
-} from "firebase/firestore";
-import { db } from "../../firebase";
+import { adColumns } from "../../datatablesource";
 
 const ShowUser = () => {
 
   const { id } = useParams();
   const [userData, setUserData] = useState(null);
-  const [adsData, setAdsData] = useState([]);
+  const [adData, setAdData] = useState([]);
 
   useEffect(() => {
     const fetchUserData = async () => {
       try {
-        const userDoc = await getDoc(doc(db, "users", id));
-        const userData = userDoc.data();
-        setUserData(userData);
-        console.log(id);
-        if (id != null){
-          const adsSnapshot = await getDocs(collection(db, "ads"), where("uid", "==", id));
-          const adsData = adsSnapshot.docs.map((doc) => {
-            const data = doc.data();
-            // Convert object properties to strings
-            const stringData = {
-              adId : doc.id,
-              uid : data.uid,
-              title: data.title,
-              price: data.price,
-              location: data.location,
-              images: data.images,
-              estateType: data.estateType,
-              timestamp: data.timestamp,
-              description: data.description,
-              floorNumber: data.floorNumber,
-              numberOfFloors : data.numberOfFloors,
-              numberOfRooms : data.numberOfRooms,
-              numberOfBathrooms : data.numberOfBathrooms,
-              squareMeter : data.squareMeter,
-              squareMeterNet : data.squareMeterNet,
-              pricePerSquareMeter : data.pricePerSquareMeter,
-              latitude: data.latitude,
-              longitude: data.longitude,
-              parcelNumber : data.parcelNumber,
-              blockNumber : data.blockNumber,
-              heating : data.heating,
-              ageOfBuilding : data.ageOfBuilding,
-              status : data.status
-            };
-            return stringData;
-          });
-          setAdsData(adsData);
-        }
-      } catch (err) {
-        console.log(err);
-        console.log(`No ads found with id ${id}`);
+        const collectionName = "users";
+        const result = await FirebaseService.get(collectionName, id);
+        setUserData(result);
+      } catch (error) {
+        console.log(error);
       }
     };
     fetchUserData();
+
+    const fetchAdData = async () => {
+      try {
+        const collectionName = "ads";
+        const field = "uid";
+        const statement = "=="
+        const value = id;
+        const result = await FirebaseService.getAllWhere(collectionName, field, value);
+        console.log(`Fetched ${result.length} ad documents`);
+        setAdData(result);
+      } catch (error) {
+        console.log(error);
+      }
+    };
+    fetchAdData();
+
   }, []);
 
   if (!userData) {
@@ -118,8 +88,8 @@ const ShowUser = () => {
           </div>
         </div>
         <div className="bottom">
-        <h1 className="title">Son İlanları</h1>
-          <List rows={adsData}/>
+          <h1 className="title">Son İlanları</h1>
+          <List data={adData} columns={adColumns} />
         </div>
       </div>
     </div>
