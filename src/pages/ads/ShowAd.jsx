@@ -19,6 +19,7 @@ const ShowAd = () => {
     const fetchAdData = async () => {
       try {
         const collectionName = "ads";
+        //Fetch data
         const result = await FirebaseService.get(collectionName, id);
         
         const transformedData = Object.entries(result).map(([field, value]) => {
