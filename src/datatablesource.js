@@ -63,3 +63,12 @@ export const adColumns = [
     width: 150,
   },
 ];
+
+export const basicColumns = [
+  { field: "field", headerName: "Field", width: 350 },
+  {
+    field: "value",
+    headerName: "Value",
+    width: 300,
+  },
+];
