@@ -9,17 +9,6 @@ const UserReports = () => {
 
   useEffect(() => {
     const fetchData = async () => {
-        // try {
-        //     const collectionName = "ads";
-        //     const field = "uid";
-        //     const statement = "==";
-        //     const value = "SxG7o7IyNnOL1SZdd3n3Lg84bDv2";
-        //     const result = await FirebaseService.getAllWhere(collectionName, field, statement, value);
-        //     console.log(`Fetched ${result.length} documents`);
-        //     setData(result);
-        //   } catch (error) {
-        //     console.log(error);
-        //   }
         try {
             const collectionName = "users";
             const result = await FirebaseService.getAll(collectionName);

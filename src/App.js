@@ -33,7 +33,7 @@ function App() {
             </Route>
             <Route path="ads">
               <Route index element={<RequireAuth><Ads /></RequireAuth>} />
-              <Route path=":adId" element={<RequireAuth><ShowAd /></RequireAuth>} />
+              <Route path=":id" element={<RequireAuth><ShowAd /></RequireAuth>} />
             </Route>
             <Route path="userReports" element={<RequireAuth><UserReport /></RequireAuth>} />
           </Route>

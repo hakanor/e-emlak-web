@@ -19,7 +19,8 @@ const Ads = () => {
         const result = await FirebaseService.getAll(collectionName);
         console.log(`Fetched ${result.length} documents`);
         const updatedResult = result.map((doc) => ({
-          documentId: doc.id, // add the uid field to the document
+          documentId: doc.id,
+          status: doc.status ? 'true' : 'false', // add the uid field to the document
           ...doc,
         }));
         setAdData(updatedResult);

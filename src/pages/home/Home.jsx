@@ -18,7 +18,11 @@ const Home = () => {
             const collectionName = "ads";
             const result = await FirebaseService.getAll(collectionName);
             console.log(`Fetched ${result.length} documents`);
-            setData(result);
+            const updatedResult = result.map((doc) => ({
+              documentId: doc.id, // add the uid field to the document
+              ...doc,
+            }));
+            setData(updatedResult);
           } catch (error) {
             console.log(error);
           }
@@ -39,7 +43,7 @@ const Home = () => {
           <Widget type="adReports" />
         </div>
         <div className="listContainer">
-          <div className="listTitle">Latest Transactions</div>
+          <div className="listTitle">Son İlanlar</div>
             <List data={data} columns={adColumns}/>
         </div>
         </div>
