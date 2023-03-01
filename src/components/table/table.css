@@ -1,57 +1,57 @@
 .cellWrapper {
-    display: flex;
-    align-items: center;
-  }
-  
-  .image {
-    max-width: 100px;
-    margin-right: 8px;
-  }
-  
-  .table {
-    margin-top: 16px;
-    box-shadow: 0px 0px 10px rgba(0, 0, 0, 0.2);
-    border-radius: 8px;
-    overflow: hidden;
-  }
-  
-  .tableCell {
-    font-weight: bold;
-    padding: 16px;
-    text-align: left;
-  }
-  
-  .status {
-    font-size: 14px;
-    font-weight: bold;
-    text-transform: uppercase;
-    padding: 4px 8px;
-    border-radius: 16px;
-  }
-  
-  .status.sold {
-    background-color: #4caf50;
-    color: #ffffff;
-  }
-  
-  .status.available {
-    background-color: #2196f3;
-    color: #ffffff;
-  }
-  
-  .status.reserved {
-    background-color: #f44336;
-    color: #ffffff;
-  }
-  
-  .cellWithImg {
-    display: flex;
-    align-items: center;
-  }
-  
-  .cellImg {
-    width: 40px;
-    height: 40px;
-    border-radius: 50%;
-    margin-right: 8px;
-  }
+  display: flex;
+  align-items: center;
+}
+
+.image {
+  max-width: 100px;
+  margin-right: 8px;
+}
+
+.table {
+  margin-top: 16px;
+  box-shadow: 0px 0px 10px rgba(0, 0, 0, 0.2);
+  border-radius: 8px;
+  overflow: hidden;
+}
+
+.tableCell {
+  font-weight: bold;
+  padding: 16px;
+  text-align: left;
+}
+
+.status {
+  font-size: 14px;
+  font-weight: bold;
+  text-transform: uppercase;
+  padding: 4px 8px;
+  border-radius: 16px;
+}
+
+.status.sold {
+  background-color: #4caf50;
+  color: #ffffff;
+}
+
+.status.available {
+  background-color: #2196f3;
+  color: #ffffff;
+}
+
+.status.reserved {
+  background-color: #f44336;
+  color: #ffffff;
+}
+
+.cellWithImg {
+  display: flex;
+  align-items: center;
+}
+
+.cellImg {
+  width: 40px;
+  height: 40px;
+  border-radius: 50%;
+  margin-right: 8px;
+}

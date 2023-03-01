@@ -35,7 +35,11 @@ const ShowUser = () => {
         const value = id;
         const result = await FirebaseService.getAllWhere(collectionName, field, value);
         console.log(`Fetched ${result.length} ad documents`);
-        setAdData(result);
+        const transformedData = result.map((doc) => ({
+          ...doc,
+          documentId: <a href={`/ads/${doc.documentId}`}>{doc.documentId}</a>,
+        }));
+        setAdData(transformedData);
       } catch (error) {
         console.log(error);
       }
