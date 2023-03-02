@@ -98,6 +98,8 @@ const Datatable = ({ data, dataType }) => {
           label="Search"
           value={searchQuery}
           onChange={handleSearch}
+          size= "small"
+          sx={{paddingBottom: "10px"}}
         />
       </div>
       <DataGrid
