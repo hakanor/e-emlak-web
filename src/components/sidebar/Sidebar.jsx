@@ -7,6 +7,7 @@ import PersonOutlineIcon from "@mui/icons-material/PersonOutline";
 import ExitToAppIcon from "@mui/icons-material/ExitToApp";
 import AccountCircleOutlinedIcon from "@mui/icons-material/AccountCircleOutlined";
 import PersonOffOutlinedIcon from '@mui/icons-material/PersonOffOutlined';
+import PersonAddAltIcon from '@mui/icons-material/PersonAddAlt';
 
 import ContentPasteOffOutlinedIcon from '@mui/icons-material/ContentPasteOffOutlined';
 import ContentPasteOutlinedIcon from '@mui/icons-material/ContentPasteOutlined';
@@ -42,7 +43,7 @@ const Sidebar = () => {
           <p className="title">Panel</p>
           <Link to="/users/new" style={{ textDecoration: "none" }}>
             <li>
-              <PersonOutlineIcon className="icon" />
+              <PersonAddAltIcon className="icon" />
               <span>Yeni Kullanıcı Ekle</span>
             </li>
           </Link>

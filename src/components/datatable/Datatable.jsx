@@ -89,10 +89,12 @@ const Datatable = ({ data, dataType }) => {
 
   let title, newLinkText, totalCountText;
   let columns = [];
+  let showNewLinkButton = false;
 
   switch (dataType) {
     case "user":
       title = "Kullanıcılar";
+      showNewLinkButton = true;
       newLinkText = "Yeni Ekle";
       totalCountText = "Toplam kullanıcı sayısı: ";
       columns = userColumns.concat(actionColumn);
@@ -117,7 +119,6 @@ const Datatable = ({ data, dataType }) => {
       break;
     default:
       title = "Add New X";
-      newLinkText = "Yeni Ekle";
       totalCountText = "Total number of X";
       columns = userColumns.concat(actionColumn);
   }
@@ -130,9 +131,11 @@ const Datatable = ({ data, dataType }) => {
     <div className="datatable">
       <div className="datatableTitle">
         {title}
-        <Link to={`/${dataType}s/new`} className="link">
-          {newLinkText}
-        </Link>
+        {showNewLinkButton && (
+          <Link to={`/${dataType}s/new`} className="link">
+            {newLinkText}
+          </Link>
+        )}
       </div>
       <br />
       <div className="searchContainer">
