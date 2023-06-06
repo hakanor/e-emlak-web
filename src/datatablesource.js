@@ -30,6 +30,30 @@ export const userColumns = [
   },
 ];
 
+export const userReportColumns = [
+  { field: "id", headerName: "Rapor Id'si", width: 350 },
+  {
+    field: "reportCategory",
+    headerName: "Rapor Kategorisi",
+    width: 300,
+  },
+  {
+    field: "reporterId",
+    headerName: "Rapor Gönderen Kullanıcı",
+    width: 290,
+  },
+  {
+    field: "userId",
+    headerName: "Raporlanan Kullanıcı ",
+    width: 290,
+  },
+  {
+    field: "status",
+    headerName: "Status",
+    width: 75,
+  },
+];
+
 export const adColumns = [
   { field: "id", headerName: "Ad ID", width: 350 },
   {
@@ -56,6 +80,31 @@ export const adColumns = [
     field: "estateType",
     headerName: "Estate Type",
     width: 150,
+  },
+  {
+    field: "status",
+    headerName: "Status",
+    width: 75,
+  },
+];
+
+
+export const adReportColumns = [
+  { field: "adId", headerName: "Ad ID", width: 350 },
+  {
+    field: "reportCategory",
+    headerName: "Rapor Kategorisi",
+    width: 250,
+  },
+  {
+    field: "userId",
+    headerName: "User ID",
+    width: 300,
+  },
+  {
+    field: "reporterId",
+    headerName: "Raporlayan Id",
+    width: 310,
   },
   {
     field: "status",

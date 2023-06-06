@@ -1,7 +1,8 @@
 .adReports {
-    background-color: #049FFF;
-}
-
-.title {
-    color: white;
-}
+    display: flex;
+  }
+  
+  .adReports .adReportsContainer {
+    flex: 6;
+  }
+  

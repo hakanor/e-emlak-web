@@ -12,6 +12,7 @@ import Ads from "./pages/ads/Ads";
 import Login from "./pages/login/Login";
 import UserReport from "./pages/userReports/UserReports";
 import AddNewUser from "./pages/addNewUser/AddNewUser";
+import AdReports from "./pages/adReports/AdReports";
 
 function App() {
 
@@ -38,6 +39,7 @@ function App() {
             </Route>
             <Route path="users/new" element={<RequireAuth><AddNewUser /></RequireAuth>} />
             <Route path="userReports" element={<RequireAuth><UserReport /></RequireAuth>} />
+            <Route path="adReports" element={<RequireAuth><AdReports /></RequireAuth>} />
           </Route>
         </Routes>
       </BrowserRouter>

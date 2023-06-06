@@ -1,38 +1,71 @@
 import "./datatable.css";
 import { DataGrid } from "@mui/x-data-grid";
-import { userColumns, adColumns } from "../../datatablesource";
+import { userColumns, adColumns, userReportColumns, adReportColumns } from "../../datatablesource";
 import { Link } from "react-router-dom";
 import { useState } from "react";
-import { TextField } from "@mui/material";
+import { TextField, Select, MenuItem } from "@mui/material";
 
 const Datatable = ({ data, dataType }) => {
-
   const [searchQuery, setSearchQuery] = useState("");
+  const [extraFilter, setExtraFilter] = useState("");
+  
+  const filterOptionsUserReport = [
+    "Üye dolandırmaya çalışıyor.",
+    "Üye profil fotoğrafı uygunsuz.",
+    "Üye isim-soyisim uygunsuz.",
+    "Üye beni rahatsız ediyor."
+  ];
+
+  const filterOptionsAdReport = [
+    "Hizmet satılmış ya da kiralanmış.",
+    "İlan kategorisi hatalı.",
+    "İlan bilgileri hatalı veya yanlış.",
+    "İlan birden fazla kere yayımlanmış.",
+    "Diğer"
+  ];
 
   const handleSearch = (event) => {
     setSearchQuery(event.target.value);
   };
-  console.log(data);
-  console.log(dataType);
 
+  const handleExtraFilter = (event) => {
+    setExtraFilter(event.target.value);
+  };
+
+  let filterFields = [];
+
+  switch (dataType) {
+    case "user":
+      filterFields = ["id", "name", "email", "surname"];
+      break;
+    case "ad":
+      filterFields = ["id", "uid", "title", "price","location","estateType","status"];
+      break;
+    case "adReport":
+      filterFields = ["adId", "reportCategory", "reporterId", "userId", "status"];
+      break;
+    case "userReport":
+      filterFields = ["id", "reportCategory", "reporterId", "userId", "status"];
+      break;
+    // Diğer durumlar için gerekli alanları buraya ekleyebilirsiniz
+    default:
+      filterFields = ["id", "name", "email", "surname"]; // Varsayılan olarak user alanlarını kullan
+  }
+  
   const filteredData = data.filter((item) => {
     const searchKeywords = searchQuery.toLowerCase().split(" ");
-    switch (dataType) {
-      case "ad":
-        return searchKeywords.every((keyword) =>
-          ["id", "uid", "title", "price", "location", "estateType"]
-            .some((fieldName) => item[fieldName]?.toLowerCase().includes(keyword))
-        );
-      case "user":
-        return searchKeywords.every((keyword) =>
-          ["id", "name", "email", "surname"]
-            .some((fieldName) => item[fieldName]?.toLowerCase().includes(keyword))
-        );
-      default:
-        console.log("default");
-        break;
-    }
+    const searchFilter = searchKeywords.every((keyword) =>
+      filterFields.some((fieldName) =>
+        item[fieldName]?.toString().toLowerCase().includes(keyword)
+      )
+    );
+  
+    const extraFilterCondition =
+      extraFilter === "" || item["reportCategory"] === extraFilter;
+  
+    return searchFilter && extraFilterCondition;
   });
+  
 
   const actionColumn = [
     {
@@ -45,10 +78,7 @@ const Datatable = ({ data, dataType }) => {
             <Link to={`/${dataType}s/${params.row.id}`} style={{ textDecoration: "none" }}>
               <div className="viewButton">View</div>
             </Link>
-            <div
-              className="deleteButton"
-              onClick={() => handleDelete(params.row.id)}
-            >
+            <div className="deleteButton" onClick={() => handleDelete(params.row.id)}>
               Delete
             </div>
           </div>
@@ -72,6 +102,18 @@ const Datatable = ({ data, dataType }) => {
       newLinkText = "Yeni Ekle";
       totalCountText = "Toplam ilan sayısı: ";
       columns = adColumns.concat(actionColumn);
+      break;
+    case "adReport":
+      title = "İlan Şikayetleri";
+      newLinkText = "Yeni Ekle";
+      totalCountText = "Toplam ilan şikayeti sayısı: ";
+      columns = adReportColumns.concat(actionColumn);
+      break;
+    case "userReport":
+      title = "Kullanıcı Şikayetleri";
+      newLinkText = "Yeni Ekle";
+      totalCountText = "Toplam kullanıcı şikayeti sayısı: ";
+      columns = userReportColumns.concat(actionColumn);
       break;
     default:
       title = "Add New X";
@@ -98,9 +140,40 @@ const Datatable = ({ data, dataType }) => {
           label="Ara"
           value={searchQuery}
           onChange={handleSearch}
-          size= "small"
-          sx={{paddingBottom: "10px"}}
+          size="small"
+          sx={{ paddingBottom: "10px" }}
         />
+        {dataType === "userReport" && (
+          <Select
+            value={extraFilter}
+            onChange={handleExtraFilter}
+            size="small"
+            sx={{ marginLeft: "10px" }}
+          >
+            <MenuItem value="">Tümü</MenuItem>
+            {filterOptionsUserReport.map((option) => (
+              <MenuItem key={option} value={option}>
+                {option}
+              </MenuItem>
+            ))}
+          </Select>
+        )}
+        {dataType === "adReport" && (
+          <Select
+            value={extraFilter}
+            onChange={handleExtraFilter}
+            size="small"
+            sx={{ marginLeft: "10px" }}
+          >
+            <MenuItem value="">Tümü</MenuItem>
+            {filterOptionsAdReport.map((option) => (
+              <MenuItem key={option} value={option}>
+                {option}
+              </MenuItem>
+            ))}
+          </Select>
+        )}
+  
       </div>
       <DataGrid
         className="datagrid"
