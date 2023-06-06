@@ -62,20 +62,20 @@ const Datatable = ({ data, dataType }) => {
 
   switch (dataType) {
     case "user":
-      title = "Add New User";
-      newLinkText = "Add New";
-      totalCountText = "Total number of Users";
+      title = "Kullanıcılar";
+      newLinkText = "Yeni Ekle";
+      totalCountText = "Toplam kullanıcı sayısı: ";
       columns = userColumns.concat(actionColumn);
       break;
     case "ad":
-      title = "Add New Ad";
-      newLinkText = "Add New";
-      totalCountText = "Total number of Ads";
+      title = "İlanlar";
+      newLinkText = "Yeni Ekle";
+      totalCountText = "Toplam ilan sayısı: ";
       columns = adColumns.concat(actionColumn);
       break;
     default:
       title = "Add New X";
-      newLinkText = "Add New";
+      newLinkText = "Yeni Ekle";
       totalCountText = "Total number of X";
       columns = userColumns.concat(actionColumn);
   }
@@ -95,7 +95,7 @@ const Datatable = ({ data, dataType }) => {
       <br />
       <div className="searchContainer">
         <TextField
-          label="Search"
+          label="Ara"
           value={searchQuery}
           onChange={handleSearch}
           size= "small"

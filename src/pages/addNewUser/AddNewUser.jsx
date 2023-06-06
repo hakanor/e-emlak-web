@@ -1,4 +1,4 @@
-import "./userReports.css";
+import "./addNewUser.css";
 import Sidebar from "../../components/sidebar/Sidebar";
 import Navbar from "../../components/navbar/Navbar";
 import DriveFolderUploadOutlinedIcon from "@mui/icons-material/DriveFolderUploadOutlined";
@@ -13,7 +13,7 @@ import { ref, uploadBytesResumable, getDownloadURL } from "firebase/storage";
 import { ToastContainer, toast } from "react-toastify";
 import "react-toastify/dist/ReactToastify.css";
 
-const UserReports = () => {
+const AddNewUser = () => {
   const [file, setFile] = useState(null);
   const [data, setData] = useState({});
   const [per, setPerc] = useState(null);
@@ -89,7 +89,7 @@ const UserReports = () => {
       <div className="newContainer">
         <Navbar />
         <div className="top">
-          <h1>User Report</h1>
+          <h1>Yeni Kullanıcı Ekle</h1>
         </div>
         <div className="bottom">
           <div className="left">
@@ -180,7 +180,7 @@ const UserReports = () => {
                   onChange={handleInput}
                 />
               </div>
-              <button disabled={per !== null && per < 100} type="submit">
+              <button disabled={per !== null && per < 100} className="sendButton" type="submit" style={{ backgroundColor: '#049FFF' }} >
                 Send
               </button>
             </form>
@@ -191,4 +191,4 @@ const UserReports = () => {
   );
 };
 
-export default UserReports;
+export default AddNewUser;
