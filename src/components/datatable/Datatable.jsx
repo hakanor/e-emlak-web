@@ -8,7 +8,7 @@ import { TextField, Select, MenuItem } from "@mui/material";
 const Datatable = ({ data, dataType }) => {
   const [searchQuery, setSearchQuery] = useState("");
   const [extraFilter, setExtraFilter] = useState("");
-  
+
   const filterOptionsUserReport = [
     "Üye dolandırmaya çalışıyor.",
     "Üye profil fotoğrafı uygunsuz.",
@@ -39,7 +39,7 @@ const Datatable = ({ data, dataType }) => {
       filterFields = ["id", "name", "email", "surname"];
       break;
     case "ad":
-      filterFields = ["id", "uid", "title", "price","location","estateType","status"];
+      filterFields = ["id", "uid", "title", "price", "location", "estateType", "status"];
       break;
     case "adReport":
       filterFields = ["adId", "reportCategory", "reporterId", "userId", "status"];
@@ -47,11 +47,10 @@ const Datatable = ({ data, dataType }) => {
     case "userReport":
       filterFields = ["id", "reportCategory", "reporterId", "userId", "status"];
       break;
-    // Diğer durumlar için gerekli alanları buraya ekleyebilirsiniz
     default:
-      filterFields = ["id", "name", "email", "surname"]; // Varsayılan olarak user alanlarını kullan
+      filterFields = ["id", "name", "email", "surname"];
   }
-  
+
   const filteredData = data.filter((item) => {
     const searchKeywords = searchQuery.toLowerCase().split(" ");
     const searchFilter = searchKeywords.every((keyword) =>
@@ -59,13 +58,12 @@ const Datatable = ({ data, dataType }) => {
         item[fieldName]?.toString().toLowerCase().includes(keyword)
       )
     );
-  
+
     const extraFilterCondition =
       extraFilter === "" || item["reportCategory"] === extraFilter;
-  
+
     return searchFilter && extraFilterCondition;
   });
-  
 
   const actionColumn = [
     {
@@ -176,7 +174,6 @@ const Datatable = ({ data, dataType }) => {
             ))}
           </Select>
         )}
-  
       </div>
       <DataGrid
         className="datagrid"

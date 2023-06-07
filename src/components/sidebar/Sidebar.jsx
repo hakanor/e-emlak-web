@@ -8,7 +8,6 @@ import ExitToAppIcon from "@mui/icons-material/ExitToApp";
 import AccountCircleOutlinedIcon from "@mui/icons-material/AccountCircleOutlined";
 import PersonOffOutlinedIcon from '@mui/icons-material/PersonOffOutlined';
 import PersonAddAltIcon from '@mui/icons-material/PersonAddAlt';
-
 import ContentPasteOffOutlinedIcon from '@mui/icons-material/ContentPasteOffOutlined';
 import ContentPasteOutlinedIcon from '@mui/icons-material/ContentPasteOutlined';
 
@@ -26,7 +25,7 @@ const Sidebar = () => {
     <div className="sidebar">
       <div className="top">
         <Link to="/" style={{ textDecoration: "none" }}>
-          <img src={logo} alt="Your App Logo" className="logo-img" />
+          <img src={logo} alt="Your App Logo" className="sideBarLogo" />
           <span className="logo">e-Emlak Admin</span>
         </Link>
       </div>

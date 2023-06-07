@@ -2,6 +2,13 @@
     height: 600px;
     padding: 20px;
 }
+
+.linkCell {
+    color: blue;
+    text-decoration: underline;
+    cursor: pointer;
+}
+
 .datatable .datatableTitle {
     width: 100%;
     font-size: 24px;

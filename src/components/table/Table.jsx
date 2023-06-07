@@ -1,4 +1,5 @@
 import "./table.css";
+import { Link } from "react-router-dom";
 
 import Table from "@mui/material/Table";
 import TableBody from "@mui/material/TableBody";
@@ -25,9 +26,17 @@ const List = ({ data, columns }) => {
             <TableRow key={row.id || index}>
               {columns.map((column) => (
                 <TableCell key={column.field} className="tableCell">
-                  {column.renderCell
-                    ? column.renderCell({ row })
-                    : row[column.field]}
+                  {column.field === "id" ? (
+                    <Link to={`/ads/${row[column.field]}`} className="linkCell">
+                      {row[column.field]}
+                    </Link>
+                  ) : column.field === "uid" ? (
+                    <Link to={`/users/${row[column.field]}`} className="linkCell">
+                      {row[column.field]}
+                    </Link>
+                  ) : (
+                    row[column.field]
+                  )}
                 </TableCell>
               ))}
             </TableRow>

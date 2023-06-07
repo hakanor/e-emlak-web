@@ -1,5 +1,15 @@
+import { Link } from "react-router-dom";
+
 export const userColumns = [
-  { field: "id", headerName: "ID", width: 350 },
+  { field: "id", 
+    headerName: "ID", 
+    width: 350 ,
+    renderCell: (params) => (
+      <Link to={`/users/${params.value}`} className="linkCell">
+        {params.value}
+      </Link>
+    ),
+  },
   {
     field: "email",
     headerName: "Email",
@@ -31,7 +41,10 @@ export const userColumns = [
 ];
 
 export const userReportColumns = [
-  { field: "id", headerName: "Rapor Id'si", width: 350 },
+  { field: "id", 
+    headerName: "Rapor Id'si", 
+    width: 350 
+  },
   {
     field: "reportCategory",
     headerName: "Rapor Kategorisi",
@@ -41,11 +54,21 @@ export const userReportColumns = [
     field: "reporterId",
     headerName: "Rapor Gönderen Kullanıcı",
     width: 290,
+    renderCell: (params) => (
+      <Link to={`/users/${params.value}`} className="linkCell">
+        {params.value}
+      </Link>
+    ),
   },
   {
     field: "userId",
     headerName: "Raporlanan Kullanıcı ",
     width: 290,
+    renderCell: (params) => (
+      <Link to={`/users/${params.value}`} className="linkCell">
+        {params.value}
+      </Link>
+    ),
   },
   {
     field: "status",
@@ -55,11 +78,27 @@ export const userReportColumns = [
 ];
 
 export const adColumns = [
-  { field: "id", headerName: "Ad ID", width: 350 },
+  { field: "id", 
+    headerName: "Ad ID",
+    width: 350,
+    renderCell: (params) => {
+      console.log(params.value); // İd değerini konsolda kontrol edin
+      return (
+        <Link to={`/ads/${params.value}`} className="linkCell">
+          {params.value}
+        </Link>
+      );
+    },
+  },
   {
     field: "uid",
     headerName: "User ID",
     width: 300,
+    renderCell: (params) => (
+      <Link to={`/users/${params.value}`} className="linkCell">
+        {params.value}
+      </Link>
+    ),
   },
   {
     field: "title",
@@ -90,7 +129,15 @@ export const adColumns = [
 
 
 export const adReportColumns = [
-  { field: "adId", headerName: "Ad ID", width: 350 },
+  { field: "adId", 
+    headerName: "İlan ID'si", 
+    width: 350 ,
+    renderCell: (params) => (
+      <Link to={`/ads/${params.value}`} className="linkCell">
+        {params.value}
+      </Link>
+    ),
+  },
   {
     field: "reportCategory",
     headerName: "Rapor Kategorisi",
@@ -100,11 +147,21 @@ export const adReportColumns = [
     field: "userId",
     headerName: "User ID",
     width: 300,
+    renderCell: (params) => (
+      <Link to={`/users/${params.value}`} className="linkCell">
+        {params.value}
+      </Link>
+    ),
   },
   {
     field: "reporterId",
     headerName: "Raporlayan Id",
     width: 310,
+    renderCell: (params) => (
+      <Link to={`/users/${params.value}`} className="linkCell">
+        {params.value}
+      </Link>
+    ),
   },
   {
     field: "status",
