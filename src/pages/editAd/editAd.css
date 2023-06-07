@@ -1,0 +1,107 @@
+.edit {
+    width: 100%;
+    display: flex;
+  }
+  
+  .edit .editContainer {
+    flex: 6;
+  }
+  
+  .removePhotoButton {
+    width: 150px;
+    padding: 10px;
+    border: none;
+    background-color: #049FFF;
+    color: white;
+    font-weight: bold;
+    cursor: pointer;
+    margin-top: 10px;
+    border-radius: 5px;
+  }
+  
+  .edit .editContainer .top,
+  .edit .editContainer .bottomEditAd {
+    -webkit-box-shadow: 2px 4px 10px 1px rgba(0, 0, 0, 0.47);
+    box-shadow: 2px 4px 10px 1px rgba(201, 201, 201, 0.47);
+    padding: 10px;
+    margin: 20px;
+    display: flex;
+  }
+  
+  .edit .editContainer .top h1,
+  .edit .editContainer .bottomEditAd h1 {
+    color: lightgray;
+    font-size: 20px;
+  }
+  
+  .edit .editContainer .top .left,
+  .edit .editContainer .bottomEditAd .left {
+    flex: 1;
+    text-align: center;
+  }
+  
+  .edit .editContainer .top .left img,
+  .edit .editContainer .bottomEditAd .left img {
+    width: 200px;
+    height: 200px;
+    border-radius: 50%;
+    object-fit: cover;
+  }
+  
+  .edit .editContainer .top .rightEditAd,
+  .edit .editContainer .bottomEditAd .rightEditAd {
+    flex: 2;
+  }
+  
+  .edit .editContainer .top .rightEditAd form,
+  .edit .editContainer .bottomEditAd .rightEditAd form {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 30px;
+  }
+  
+  .edit .editContainer .top .rightEditAd form .formInput,
+  .edit .editContainer .bottomEditAd .rightEditAd form .formInput {
+    width: 80%;
+  }
+  
+  .edit .editContainer .top .rightEditAd form .formInput label,
+  .edit .editContainer .bottomEditAd .rightEditAd form .formInput label {
+    display: flex;
+    align-items: center;
+    gap: 10px;
+  }
+  
+  .edit .editContainer .top .rightEditAd form .formInput label .icon,
+  .edit .editContainer .bottomEditAd .rightEditAd form .formInput label .icon {
+    cursor: pointer;
+  }
+  
+  .edit .editContainer .top .rightEditAd form .formInput input,
+  .edit .editContainer .bottomEditAd .rightEditAd form .formInput input {
+    width: 100%;
+    padding: 5px;
+    border: none;
+    border-bottom: 1px solid gray;
+  }
+  
+  .edit .editContainer .top .rightEditAd form button,
+  .edit .editContainer .bottomEditAd .rightEditAd form button {
+    width: 150px;
+    padding: 10px;
+    border: none;
+    background-color: #049FFF;
+    border-radius: 5px;
+    color: white;
+    font-weight: bold;
+    cursor: pointer;
+    margin-top: 10px;
+  }
+  
+  .edit .editContainer .top .rightEditAd form button:disabled,
+  .edit .editContainer .bottomEditAd .rightEditAd form button:disabled {
+    background-color: rgba(3, 92, 92, 0.322);
+    cursor: not-allowed;
+  }
+  

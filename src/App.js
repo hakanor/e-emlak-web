@@ -14,6 +14,7 @@ import UserReport from "./pages/userReports/UserReports";
 import AddNewUser from "./pages/addNewUser/AddNewUser";
 import AdReports from "./pages/adReports/AdReports";
 import EditUser from "./pages/editUser/EditUser";
+import EditAd from "./pages/editAd/EditAd";
 
 function App() {
 
@@ -38,6 +39,7 @@ function App() {
             <Route path="ads">
               <Route index element={<RequireAuth><Ads /></RequireAuth>} />
               <Route path=":id" element={<RequireAuth><ShowAd /></RequireAuth>} />
+              <Route path="edit/:id" element={<RequireAuth><EditAd /></RequireAuth>} />
             </Route>
             <Route path="users/new" element={<RequireAuth><AddNewUser /></RequireAuth>} />
             <Route path="userReports" element={<RequireAuth><UserReport /></RequireAuth>} />

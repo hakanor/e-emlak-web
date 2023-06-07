@@ -3,8 +3,9 @@ import "./showAd.css";
 import Sidebar from "../../components/sidebar/Sidebar";
 import Navbar from "../../components/navbar/Navbar";
 import moment from "moment";
+import { useNavigate } from "react-router-dom";
 
-import FirebaseService from '../../FirebaseService';
+import FirebaseService from "../../FirebaseService";
 import { useParams } from "react-router-dom";
 import { useEffect } from "react";
 import List from "../../components/table/Table";
@@ -15,6 +16,7 @@ import "react-toastify/dist/ReactToastify.css";
 
 const ShowAd = () => {
   const { id } = useParams();
+  const navigate = useNavigate();
   const [adData, setAdData] = useState([]);
   const [adStatus, setAdStatus] = useState("");
 
@@ -26,7 +28,7 @@ const ShowAd = () => {
         const collectionName = "ads";
         // Fetch data
         const result = await FirebaseService.get(collectionName, id);
-        
+
         const transformedData = Object.entries(result).map(([field, value]) => {
           if (field === "uid") {
             value = <a href={`/users/${value}`}>{value}</a>;
@@ -54,7 +56,7 @@ const ShowAd = () => {
           } else {
             value = "";
           }
-        
+
           return { field, value };
         });
         setAdData(transformedData);
@@ -72,7 +74,7 @@ const ShowAd = () => {
       const adId = id;
       const updatedStatus = !adStatus;
       const updatedData = { status: updatedStatus };
-      
+
       await FirebaseService.update(collectionName, adId, updatedData);
       setAdStatus(updatedStatus);
       toast.success("İlan durumu başarı ile güncellendi.");
@@ -94,22 +96,26 @@ const ShowAd = () => {
     }
   };
 
+  const handleEditAd = () => {
+    navigate(`/ads/edit/${id}`);
+  };
+
   return (
     <div className="single">
       <Sidebar />
       <div className="singleContainer">
         <Navbar />
         <ToastContainer
-              position="bottom-right"
-              autoClose={5000}
-              hideProgressBar={false}
-              newestOnTop={false}
-              closeOnClick
-              rtl={false}
-              pauseOnFocusLoss
-              draggable
-              pauseOnHover
-            />
+          position="bottom-right"
+          autoClose={5000}
+          hideProgressBar={false}
+          newestOnTop={false}
+          closeOnClick
+          rtl={false}
+          pauseOnFocusLoss
+          draggable
+          pauseOnHover
+        />
         <div className="top">
           <div className="left">
             <div className="buttonGroup2">
@@ -124,7 +130,9 @@ const ShowAd = () => {
                 </button>
               </div>
               <div className="buttonContainer">
-                <button className="button">İlanı Düzenle</button>
+                <button className="button" onClick={handleEditAd}>
+                  İlanı Düzenle
+                </button>
               </div>
             </div>
             <h1 className="title">İlan Detayları</h1>
@@ -134,6 +142,6 @@ const ShowAd = () => {
       </div>
     </div>
   );
-}
+};
 
 export default ShowAd;
