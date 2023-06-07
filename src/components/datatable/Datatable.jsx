@@ -94,25 +94,25 @@ const Datatable = ({ data, dataType }) => {
       title = "Kullanıcılar";
       showNewLinkButton = true;
       newLinkText = "Yeni Ekle";
-      totalCountText = "Toplam kullanıcı sayısı: ";
+      totalCountText = "Toplam kullanıcı sayısı";
       columns = userColumns.concat(actionColumn);
       break;
     case "ad":
       title = "İlanlar";
       newLinkText = "Yeni Ekle";
-      totalCountText = "Toplam ilan sayısı: ";
+      totalCountText = "Toplam ilan sayısı";
       columns = adColumns.concat(actionColumn);
       break;
     case "adReport":
       title = "İlan Şikayetleri";
       newLinkText = "Yeni Ekle";
-      totalCountText = "Toplam ilan şikayeti sayısı: ";
+      totalCountText = "Toplam ilan şikayeti sayısı";
       columns = adReportColumns.concat(actionColumn);
       break;
     case "userReport":
       title = "Kullanıcı Şikayetleri";
       newLinkText = "Yeni Ekle";
-      totalCountText = "Toplam kullanıcı şikayeti sayısı: ";
+      totalCountText = "Toplam kullanıcı şikayeti sayısı";
       columns = userReportColumns.concat(actionColumn);
       break;
     default:
