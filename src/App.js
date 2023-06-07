@@ -13,6 +13,7 @@ import Login from "./pages/login/Login";
 import UserReport from "./pages/userReports/UserReports";
 import AddNewUser from "./pages/addNewUser/AddNewUser";
 import AdReports from "./pages/adReports/AdReports";
+import EditUser from "./pages/editUser/EditUser";
 
 function App() {
 
@@ -32,6 +33,7 @@ function App() {
             <Route path="users">
               <Route index element={<RequireAuth><Users /></RequireAuth>} />
               <Route path=":id" element={<RequireAuth><ShowUser /></RequireAuth>} />
+              <Route path="edit/:id" element={<RequireAuth><EditUser /></RequireAuth>} />
             </Route>
             <Route path="ads">
               <Route index element={<RequireAuth><Ads /></RequireAuth>} />
