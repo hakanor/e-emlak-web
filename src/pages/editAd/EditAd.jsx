@@ -236,6 +236,26 @@ const EditAd = () => {
                                                 />
                                             </div>
 
+                                            <div className="formInput">
+                                                <label htmlFor="numberOfFloors">Bina Kat Numarası:</label>
+                                                <input
+                                                    id="numberOfFloors"
+                                                    type="number"
+                                                    placeholder="Bina kat numarası girin"
+                                                    value={adData.numberOfFloors || ''}
+                                                    onChange={handleInput}
+                                                />
+                                            </div>
+                                            <div className="formInput">
+                                                <label htmlFor="heating">Isıtma:</label>
+                                                <input
+                                                    id="heating"
+                                                    type="text"
+                                                    placeholder="Isıtma girin"
+                                                    value={adData.heating || ''}
+                                                    onChange={handleInput}
+                                                />
+                                            </div>
 
                                         </div>
                                     )}
@@ -308,11 +328,11 @@ const EditAd = () => {
                                             </div>
 
                                             <div className="formInput">
-                                                <label htmlFor="heating">Isınma:</label>
+                                                <label htmlFor="heating">Isıtma:</label>
                                                 <input
                                                     id="heating"
                                                     type="text"
-                                                    placeholder="Isınma girin"
+                                                    placeholder="Isıtma girin"
                                                     value={adData.heating || ''}
                                                     onChange={handleInput}
                                                 />
