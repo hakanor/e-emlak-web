@@ -1,18 +1,18 @@
-import React from "react";
+import React, { useState, useEffect } from "react";
 import "./showUser.css";
+import { useNavigate, useParams } from "react-router-dom";
 import Sidebar from "../../components/sidebar/Sidebar";
 import Navbar from "../../components/navbar/Navbar";
 import List from "../../components/table/Table";
 import FirebaseService from '../../FirebaseService';
-import { useState, useEffect } from "react";
-import { useParams } from "react-router-dom";
 import { adColumns } from "../../datatablesource";
 import { ToastContainer, toast } from "react-toastify";
 import "react-toastify/dist/ReactToastify.css";
 import { auth } from "../../firebase";
-import { getAuth, sendPasswordResetEmail, updateCurrentUser, updateProfile} from "firebase/auth";
+import { sendPasswordResetEmail } from "firebase/auth";
 
 const ShowUser = () => {
+  const navigate = useNavigate();
   const { id } = useParams();
   const [userData, setUserData] = useState(null);
   const [adData, setAdData] = useState([]);
@@ -29,7 +29,7 @@ const ShowUser = () => {
     };
     fetchUserData();
 
-  const fetchAdData = async () => {
+    const fetchAdData = async () => {
       try {
         const collectionName = "ads";
         const field = "uid";
@@ -55,8 +55,8 @@ const ShowUser = () => {
   }, [id]);
 
   const handleEditUser = () => {
-    // Kullanıcıyı düzenlemek için yapılacak işlemleri burada gerçekleştirin
-    console.log("Kullanıcıyı düzenle");
+    const editUserUrl = `/users/edit/${id}`;
+    navigate(editUserUrl);
   };
 
   const handleDeleteUser = () => {
@@ -75,7 +75,20 @@ const ShowUser = () => {
   };
 
   const handleBanUser = async () => {
-
+    try {
+      const collectionName = "users";
+      const id = userData.id;
+      const disableStatus = userData.disabled;
+      const updatedData = { disabled: !disableStatus };
+      await FirebaseService.update(collectionName, id, updatedData);
+      toast.success("Kullanıcı yasaklama işlemi başarılı..");
+      setUserData(prevUserData => ({
+        ...prevUserData,
+        disabled: !disableStatus // Kullanıcının yasaklama durumunu güncelle
+      }));
+    } catch (error) {
+      toast.success("Kullanıcı engellenirken bir hata oluştu:", error);
+    }
   };
 
   if (!userData) {
@@ -124,6 +137,12 @@ const ShowUser = () => {
                 <div className="detailItem">
                   <span className="itemKey">uid:</span>
                   <span className="itemValue">{userData.uid}</span>
+                </div>
+                <div className="detailItem">
+                  <span className="itemKey">Ban durumu:</span>
+                  <span className={`itemValue ${userData.disabled ? 'red' : 'green'}`}>
+                    {userData.disabled ? 'Yasaklı' : 'Aktif'}
+                  </span>
                 </div>
               </div>
             </div>

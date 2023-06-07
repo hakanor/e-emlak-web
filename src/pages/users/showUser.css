@@ -102,3 +102,14 @@
     background-color: #5e3cdb;
   }
   
+  .itemValue {
+    /* Varsayılan stil */
+  }
+  
+  .itemValue.red {
+    color: red;
+  }
+  
+  .itemValue.green {
+    color: green;
+  }
