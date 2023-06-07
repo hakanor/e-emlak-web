@@ -69,8 +69,8 @@ const EditAd = () => {
                 <div className="top">
                     <h1>İlanı Düzenle</h1>
                 </div>
-                <div className="bottom">
-                    <div className="right">
+                <div className="bottomEditAd">
+                    <div className="rightEditAd">
                         <ToastContainer
                             position="bottom-right"
                             autoClose={5000}
@@ -85,8 +85,17 @@ const EditAd = () => {
                         <form onSubmit={handleEdit}>
                             {adData.estateType && (
                                 <div>
-
-                                    <div className="formInput">
+                                    <div className="formInputEditAd">
+                                        <label htmlFor="estateType">İlan Kategorisi:</label>
+                                        <input
+                                            id="estateType"
+                                            type="text"
+                                            placeholder="Başlık girin"
+                                            value={adData.estateType || ''}
+                                            onChange={handleInput}
+                                        />
+                                    </div>
+                                    <div className="formInputEditAd">
                                         <label htmlFor="title">Başlık:</label>
                                         <input
                                             id="title"
@@ -96,18 +105,17 @@ const EditAd = () => {
                                             onChange={handleInput}
                                         />
                                     </div>
-
-                                    <div className="formInput">
+                                    <div className="formInputEditAd">
                                         <label htmlFor="description">Açıklama:</label>
                                         <textarea
                                             id="description"
+                                            className="textAreaEditAd"
                                             placeholder="Açıklama girin"
                                             value={adData.description || ''}
                                             onChange={handleInput}
                                         ></textarea>
                                     </div>
-
-                                    <div className="formInput">
+                                    <div className="formInputEditAd">
                                         <label htmlFor="price">Fiyat:</label>
                                         <input
                                             id="price"
@@ -117,10 +125,7 @@ const EditAd = () => {
                                             onChange={handleInput}
                                         ></input>
                                     </div>
-
-
-
-                                    <div className="formInput">
+                                    <div className="formInputEditAd">
                                         <label htmlFor="uid">Kullanıcı ID:</label>
                                         <input
                                             id="uid"
@@ -130,8 +135,7 @@ const EditAd = () => {
                                             onChange={handleInput}
                                         />
                                     </div>
-
-                                    <div className="formInput">
+                                    <div className="formInputEditAd">
                                         <label htmlFor="location">Konum:</label>
                                         <input
                                             id="location"
@@ -141,8 +145,7 @@ const EditAd = () => {
                                             onChange={handleInput}
                                         />
                                     </div>
-
-                                    <div className="formInput">
+                                    <div className="formInputEditAd">
                                         <label htmlFor="latitude">Enlem:</label>
                                         <input
                                             id="latitude"
@@ -152,8 +155,7 @@ const EditAd = () => {
                                             onChange={handleInput}
                                         />
                                     </div>
-
-                                    <div className="formInput">
+                                    <div className="formInputEditAd">
                                         <label htmlFor="longitude">Boylam:</label>
                                         <input
                                             id="longitude"
@@ -163,8 +165,7 @@ const EditAd = () => {
                                             onChange={handleInput}
                                         />
                                     </div>
-
-                                    <div className="formInput">
+                                    <div className="formInputEditAd">
                                         <label htmlFor="squareMeter">Metrekare:</label>
                                         <input
                                             id="squareMeter"
@@ -176,9 +177,7 @@ const EditAd = () => {
                                     </div>
                                     {adData.estateType.split('/')[0] === 'Konut' && (
                                         <div>
-
-
-                                            <div className="formInput">
+                                            <div className="formInputEditAd">
                                                 <label htmlFor="squareMeterNet">Net Metrekare:</label>
                                                 <input
                                                     id="squareMeterNet"
@@ -188,11 +187,7 @@ const EditAd = () => {
                                                     onChange={handleInput}
                                                 />
                                             </div>
-
-
-
-
-                                            <div className="formInput">
+                                            <div className="formInputEditAd">
                                                 <label htmlFor="numberOfRooms">Oda Sayısı:</label>
                                                 <input
                                                     id="numberOfRooms"
@@ -202,8 +197,7 @@ const EditAd = () => {
                                                     onChange={handleInput}
                                                 />
                                             </div>
-
-                                            <div className="formInput">
+                                            <div className="formInputEditAd">
                                                 <label htmlFor="numberOfBathrooms">Banyo Sayısı:</label>
                                                 <input
                                                     id="numberOfBathrooms"
@@ -213,8 +207,7 @@ const EditAd = () => {
                                                     onChange={handleInput}
                                                 />
                                             </div>
-
-                                            <div className="formInput">
+                                            <div className="formInputEditAd">
                                                 <label htmlFor="ageOfBuilding">Bina Yaşı:</label>
                                                 <input
                                                     id="ageOfBuilding"
@@ -224,8 +217,7 @@ const EditAd = () => {
                                                     onChange={handleInput}
                                                 />
                                             </div>
-
-                                            <div className="formInput">
+                                            <div className="formInputEditAd">
                                                 <label htmlFor="floorNumber">Kat Numarası:</label>
                                                 <input
                                                     id="floorNumber"
@@ -235,8 +227,7 @@ const EditAd = () => {
                                                     onChange={handleInput}
                                                 />
                                             </div>
-
-                                            <div className="formInput">
+                                            <div className="formInputEditAd">
                                                 <label htmlFor="numberOfFloors">Bina Kat Numarası:</label>
                                                 <input
                                                     id="numberOfFloors"
@@ -246,7 +237,7 @@ const EditAd = () => {
                                                     onChange={handleInput}
                                                 />
                                             </div>
-                                            <div className="formInput">
+                                            <div className="formInputEditAd">
                                                 <label htmlFor="heating">Isıtma:</label>
                                                 <input
                                                     id="heating"
@@ -256,16 +247,12 @@ const EditAd = () => {
                                                     onChange={handleInput}
                                                 />
                                             </div>
-
                                         </div>
                                     )}
 
                                     {adData.estateType.split('/')[0] === 'Arsa' && (
                                         <div>
-
-
-
-                                            <div className="formInput">
+                                            <div className="formInputEditAd">
                                                 <label htmlFor="pricePerSquareMeter">Metrekare Fiyatı:</label>
                                                 <input
                                                     id="pricePerSquareMeter"
@@ -275,8 +262,7 @@ const EditAd = () => {
                                                     onChange={handleInput}
                                                 />
                                             </div>
-
-                                            <div className="formInput">
+                                            <div className="formInputEditAd">
                                                 <label htmlFor="blockNumber">Ada Numarası:</label>
                                                 <input
                                                     id="blockNumber"
@@ -286,8 +272,7 @@ const EditAd = () => {
                                                     onChange={handleInput}
                                                 />
                                             </div>
-
-                                            <div className="formInput">
+                                            <div className="formInputEditAd">
                                                 <label htmlFor="parcelNumber">Parsel Numarası:</label>
                                                 <input
                                                     id="parcelNumber"
@@ -297,15 +282,12 @@ const EditAd = () => {
                                                     onChange={handleInput}
                                                 />
                                             </div>
-
-
-
                                         </div>
                                     )}
 
                                     {adData.estateType.split('/')[0] === 'İş Yeri' && (
                                         <div>
-                                            <div className="formInput">
+                                            <div className="formInputEditAd">
                                                 <label htmlFor="ageOfBuilding">Bina Yaşı:</label>
                                                 <input
                                                     id="ageOfBuilding"
@@ -316,7 +298,7 @@ const EditAd = () => {
                                                 />
                                             </div>
 
-                                            <div className="formInput">
+                                            <div className="formInputEditAd">
                                                 <label htmlFor="numberOfFloors">Kat Sayısı:</label>
                                                 <input
                                                     id="numberOfFloors"
@@ -327,7 +309,7 @@ const EditAd = () => {
                                                 />
                                             </div>
 
-                                            <div className="formInput">
+                                            <div className="formInputEditAd">
                                                 <label htmlFor="heating">Isıtma:</label>
                                                 <input
                                                     id="heating"
@@ -337,15 +319,11 @@ const EditAd = () => {
                                                     onChange={handleInput}
                                                 />
                                             </div>
-
-
                                         </div>
                                     )}
-
                                 </div>
                             )}
-
-                            <button className="sendButton" type="submit">
+                            <button className="sendButton" type="submit" id="sendButtonEditAd">
                                 Düzenle
                             </button>
                         </form>

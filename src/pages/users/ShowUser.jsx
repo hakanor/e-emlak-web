@@ -166,13 +166,13 @@ const ShowUser = () => {
               <button className="button" onClick={handleEditUser}>Kullanıcıyı Düzenle</button>
             </div>
             <div className="buttonContainer">
-              <button className="button" onClick={handleDeleteUser}>Kullanıcıyı Sil</button>
-            </div>
-            <div className="buttonContainer">
               <button className="button" onClick={handleResetPassword}>Şifre Sıfırlama</button>
             </div>
             <div className="buttonContainer">
               <button className="button" onClick={handleBanUser}>Kullanıcıyı Yasakla</button>
+            </div>
+            <div className="buttonContainer">
+              <button className="button" onClick={handleDeleteUser}>Kullanıcıyı Sil</button>
             </div>
           </div>
         </div>

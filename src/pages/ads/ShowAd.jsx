@@ -125,13 +125,13 @@ const ShowAd = () => {
                 </button>
               </div>
               <div className="buttonContainer">
-                <button className="button" onClick={handleDeleteAd}>
-                  İlanı Kaldır
+                <button className="button" onClick={handleEditAd}>
+                  İlanı Düzenle
                 </button>
               </div>
               <div className="buttonContainer">
-                <button className="button" onClick={handleEditAd}>
-                  İlanı Düzenle
+                <button className="button" onClick={handleDeleteAd}>
+                  İlanı Kaldır
                 </button>
               </div>
             </div>

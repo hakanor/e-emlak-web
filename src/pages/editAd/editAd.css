@@ -7,18 +7,6 @@
     flex: 6;
   }
   
-  .removePhotoButton {
-    width: 150px;
-    padding: 10px;
-    border: none;
-    background-color: #049FFF;
-    color: white;
-    font-weight: bold;
-    cursor: pointer;
-    margin-top: 10px;
-    border-radius: 5px;
-  }
-  
   .edit .editContainer .top,
   .edit .editContainer .bottomEditAd {
     -webkit-box-shadow: 2px 4px 10px 1px rgba(0, 0, 0, 0.47);
@@ -28,58 +16,51 @@
     display: flex;
   }
   
+.edit .editContainer .top .rightEditAd form .formInputEditAd textarea,
+.edit .editContainer .bottomEditAd .rightEditAd form .formInputEditAd textarea {
+  width: 101%;
+  resize: vertical;
+}
   .edit .editContainer .top h1,
   .edit .editContainer .bottomEditAd h1 {
     color: lightgray;
     font-size: 20px;
   }
   
-  .edit .editContainer .top .left,
-  .edit .editContainer .bottomEditAd .left {
-    flex: 1;
-    text-align: center;
-  }
-  
-  .edit .editContainer .top .left img,
-  .edit .editContainer .bottomEditAd .left img {
-    width: 200px;
-    height: 200px;
-    border-radius: 50%;
-    object-fit: cover;
-  }
-  
   .edit .editContainer .top .rightEditAd,
   .edit .editContainer .bottomEditAd .rightEditAd {
-    flex: 2;
+    flex: 1;
   }
   
   .edit .editContainer .top .rightEditAd form,
   .edit .editContainer .bottomEditAd .rightEditAd form {
     display: flex;
     flex-direction: column;
-    align-items: center;
-    gap: 30px;
+    align-items: start;
+    padding-left: 30%;
+    gap: 10px;
   }
   
-  .edit .editContainer .top .rightEditAd form .formInput,
-  .edit .editContainer .bottomEditAd .rightEditAd form .formInput {
-    width: 80%;
+  .edit .editContainer .top .rightEditAd form .formInputEditAd,
+  .edit .editContainer .bottomEditAd .rightEditAd form .formInputEditAd {
+    width: 300%;
+    margin-bottom: 12px; /* Yeni satır */
   }
   
-  .edit .editContainer .top .rightEditAd form .formInput label,
-  .edit .editContainer .bottomEditAd .rightEditAd form .formInput label {
+  .edit .editContainer .top .rightEditAd form .formInputEditAd label,
+  .edit .editContainer .bottomEditAd .rightEditAd form .formInputEditAd label {
     display: flex;
     align-items: center;
     gap: 10px;
   }
   
-  .edit .editContainer .top .rightEditAd form .formInput label .icon,
-  .edit .editContainer .bottomEditAd .rightEditAd form .formInput label .icon {
+  .edit .editContainer .top .rightEditAd form .formInputEditAd label .icon,
+  .edit .editContainer .bottomEditAd .rightEditAd form .formInputEditAd label .icon {
     cursor: pointer;
   }
   
-  .edit .editContainer .top .rightEditAd form .formInput input,
-  .edit .editContainer .bottomEditAd .rightEditAd form .formInput input {
+  .edit .editContainer .top .rightEditAd form .formInputEditAd input,
+  .edit .editContainer .bottomEditAd .rightEditAd form .formInputEditAd input {
     width: 100%;
     padding: 5px;
     border: none;
@@ -104,4 +85,10 @@
     background-color: rgba(3, 92, 92, 0.322);
     cursor: not-allowed;
   }
+
+
+#sendButtonEditAd {
+    margin-left: 16%;
+}
+
   
