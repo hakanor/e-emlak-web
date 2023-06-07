@@ -1,4 +1,4 @@
-import { collection, doc, getDocs, getDoc, addDoc, updateDoc, deleteDoc, where ,query} from 'firebase/firestore';
+import { collection, doc, getDocs, getDoc, addDoc, updateDoc, deleteDoc, where ,query, writeBatch} from 'firebase/firestore';
 import { db } from './firebase';
 
 // Define a service object

@@ -4,20 +4,17 @@ import PersonOutlinedIcon from "@mui/icons-material/PersonOutlined";
 import PersonOffOutlinedIcon from '@mui/icons-material/PersonOffOutlined';
 import ContentPasteOutlinedIcon from '@mui/icons-material/ContentPasteOutlined';
 import ContentPasteOffOutlinedIcon from '@mui/icons-material/ContentPasteOffOutlined';
+import { Link } from 'react-router-dom';
 
-
-const Widget = ({ type }) => {
+const Widget = ({ type, amount, diff }) => {
   let data;
-
-  //temporary
-  const amount = 100;
-  const diff = 20;
 
   switch (type) {
     case "user":
       data = {
         title: "USERS",
         link: "See all users",
+        path: "/users",
         icon: (
           <PersonOutlinedIcon
             className="icon"
@@ -30,6 +27,7 @@ const Widget = ({ type }) => {
       data = {
         title: "ADS",
         link: "View all ads",
+        path: "/ads",
         icon: (
           <ContentPasteOutlinedIcon
             className="icon"
@@ -44,13 +42,14 @@ const Widget = ({ type }) => {
     case "userReports":
       data = {
         title: "USER REPORTS",
-        link: "Viev all user reports",
+        link: "View all user reports",
+        path: "/userReports",
         icon: (
           <PersonOffOutlinedIcon
             className="icon"
             style={{
-                color: "crimson",
-                backgroundColor: "rgba(255, 0, 0, 0.2)",
+              color: "crimson",
+              backgroundColor: "rgba(255, 0, 0, 0.2)",
             }}
           />
         ),
@@ -59,7 +58,8 @@ const Widget = ({ type }) => {
     case "adReports":
       data = {
         title: "AD REPORTS",
-        link: "Viev all ad reports",
+        link: "View all ad reports",
+        path: "/adReports",
         icon: (
           <ContentPasteOffOutlinedIcon
             className="icon"
@@ -80,9 +80,18 @@ const Widget = ({ type }) => {
       <div className="left">
         <span className="title">{data.title}</span>
         <span className="counter">
-         {amount}
+          {amount}
         </span>
-        <span className="link">{data.link}</span>
+        <Link
+          to={data.path}
+          className="link"
+          style={{
+            color: "inherit",
+            textDecoration: "none",
+          }}
+        >
+          {data.link}
+        </Link>
       </div>
       <div className="right">
         <div className="percentage positive">

@@ -9,7 +9,7 @@ import { adColumns } from "../../datatablesource";
 import { ToastContainer, toast } from "react-toastify";
 import "react-toastify/dist/ReactToastify.css";
 import { auth } from "../../firebase";
-import { sendPasswordResetEmail } from "firebase/auth";
+import { sendPasswordResetEmail,deleteUser } from "firebase/auth";
 
 const ShowUser = () => {
   const navigate = useNavigate();
@@ -60,8 +60,22 @@ const ShowUser = () => {
   };
 
   const handleDeleteUser = () => {
-    // Kullanıcıyı silmek için yapılacak işlemleri burada gerçekleştirin
-    console.log("Kullanıcıyı sil");
+    const confirmDelete = window.confirm("Kullanıcı kaydı silinecektir. Emin misiniz?");
+    if (confirmDelete) {
+      // Kullanıcıyı silmek için gereken işlemleri gerçekleştirin
+      deleteUser();
+    }
+  };
+
+  const deleteUser = async () => {
+    try {
+      // Kullanıcıyı Firebase Authentication'dan sil
+      const collectionName = "users";
+      await FirebaseService.delete(collectionName, id);
+      toast.success("Kullanıcı başarıyla silindi.");
+    } catch (error) {
+      toast.error("Kullanıcı silinirken bir hata oluştu: " + error.message);
+    }
   };
 
   const handleResetPassword = async () => {
