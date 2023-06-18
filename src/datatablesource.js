@@ -129,6 +129,18 @@ export const adColumns = [
 
 
 export const adReportColumns = [
+  { field: "id", 
+    headerName: "Rapor Id'si",
+    width: 350,
+    renderCell: (params) => {
+      console.log(params.value); // İd değerini konsolda kontrol edin
+      return (
+        <Link to={`/adReports/${params.value}`} className="linkCell">
+          {params.value}
+        </Link>
+      );
+    },
+  },
   { field: "adId", 
     headerName: "İlan ID'si", 
     width: 350 ,
@@ -145,18 +157,8 @@ export const adReportColumns = [
   },
   {
     field: "userId",
-    headerName: "User ID",
+    headerName: "İlan Sahibi",
     width: 300,
-    renderCell: (params) => (
-      <Link to={`/users/${params.value}`} className="linkCell">
-        {params.value}
-      </Link>
-    ),
-  },
-  {
-    field: "reporterId",
-    headerName: "Raporlayan Id",
-    width: 310,
     renderCell: (params) => (
       <Link to={`/users/${params.value}`} className="linkCell">
         {params.value}
