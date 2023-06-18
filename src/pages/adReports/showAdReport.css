@@ -1,0 +1,36 @@
+.showUserReports {
+    display: flex;
+    width: 100%;
+  }
+  
+  .showUserReportsContainer {
+    flex: 6;
+  }
+  
+  .topUserReport {
+    padding: 20px;
+    text-align: center;
+  }
+  
+  .bottomUserReport {
+    padding: 20px;
+    margin: 10px 20px;
+    background-color: #f8f8f8;
+    border: 1px solid #ddd;
+    border-radius: 5px;
+  }
+  
+  .formInputReport {
+    display: flex;
+    margin-bottom: 10px;
+  }
+  
+  .formInputReport label {
+    flex: 1;
+    font-weight: bold;
+  }
+  
+  .formInputReport div {
+    flex: 3;
+  }
+  

@@ -69,16 +69,13 @@ const Datatable = ({ data, dataType }) => {
     {
       field: "action",
       headerName: "Action",
-      width: 200,
+      width: 100,
       renderCell: (params) => {
         return (
           <div className="cellAction">
             <Link to={`/${dataType}s/${params.row.id}`} style={{ textDecoration: "none" }}>
-              <div className="viewButton">View</div>
+              <div className="viewButton">Görüntüle</div>
             </Link>
-            <div className="deleteButton" onClick={() => handleDelete(params.row.id)}>
-              Delete
-            </div>
           </div>
         );
       },
