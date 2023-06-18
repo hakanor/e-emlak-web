@@ -181,10 +181,10 @@ const ShowAdReport = () => {
             <Button variant="contained" sx={{backgroundColor:"#049FFF", marginRight: '10px'}} onClick={toggleStatus}>
               Aktif/Pasif Duruma Getir
             </Button>
-            <Button variant="contained" sx={{backgroundColor:"#049FFF", marginRight: '10px'}} onClick={navigateToUser}>
+            <Button variant="contained" sx={{backgroundColor:"#049FFF", marginRight: '10px'}} onClick={navigateToAd}>
               İlgili İlana Git
             </Button>
-            <Button variant="contained" sx={{backgroundColor:"#049FFF", marginRight: '10px'}} onClick={navigateToAd}>
+            <Button variant="contained" sx={{backgroundColor:"#049FFF", marginRight: '10px'}} onClick={navigateToUser}>
               İlgili Üyeye Git
             </Button>
           </div>
